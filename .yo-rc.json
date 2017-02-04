@@ -1,0 +1,14 @@
+{
+  "generator-kraken": {
+    "taskModule": "grunt",
+    "lintModule": "eslint",
+    "description": "GitHub PR Review Helper",
+    "author": "@lmarkus",
+    "templateModule": "makara",
+    "i18n": false,
+    "componentPackager": false,
+    "cssModule": "less",
+    "jsModule": false,
+    "useJson": null
+  }
+}

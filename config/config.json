@@ -1,0 +1,92 @@
+{
+    "express": {
+        "view cache": false,
+        "view engine": "js",
+        "views": "path:./.build/templates"
+    },
+    "view engines": {
+        "js": {
+            "module": "makara",
+            "renderer": {
+                "method": "js",
+                "arguments": [
+                    {
+                        "cache": true,
+                        "helpers": "config:dust.helpers"
+                    }
+                ]
+            }
+        }
+    },
+    "dust": {
+        "helpers": [
+        ]
+    },
+    "specialization": {
+    },
+    "middleware": {
+        "makara": {
+            "priority": 100,
+            "enabled": true,
+            "module": {
+                "name": "makara",
+                "arguments": [
+                    {
+                        "i18n": "config:i18n",
+                        "specialization": "config:specialization"
+                    }
+                ]
+            }
+        },
+        "appsec": {
+            "enabled": true,
+            "priority": 110,
+            "module": {
+                "name": "lusca",
+                "arguments": [
+                    {
+                        "csrf": false,
+                        "xframe": "SAMEORIGIN",
+                        "p3p": false,
+                        "csp": false
+                    }
+                ]
+            }
+        },
+        "static": {
+            "module": {
+                "arguments": [
+                    "path:./.build"
+                ]
+            }
+        },
+        "router": {
+            "module": {
+                "arguments": [
+                    {
+                        "directory": "path:./controllers"
+                    }
+                ]
+            }
+        }
+    },
+    "app": {
+        "github": {
+            "api": {
+                "token": "env:GH_TOKEN",
+                "protocol": "https",
+                "host": "github.paypal.com",
+                "pathPrefix": "/api/v3"
+            },
+            "hooks": {
+                "secret": "env:GH_SECRET",
+                "host": "",
+                "path": "/"
+            }
+        },
+        "slack": {
+            "token": "env:SLACK_TOKEN"
+        },
+        "reviewers": 2
+    }
+}
