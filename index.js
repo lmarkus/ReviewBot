@@ -1,11 +1,13 @@
 'use strict';
 
-var express = require('express');
-var kraken = require('kraken-js');
-const github = require('./lib/github');
+const express = require('express')
+    , kraken = require('kraken-js')
+    , github = require('./lib/github')
+    , debuglog = require('util').debuglog('reviewBot')
+    ;
 
 
-var options, app;
+let options, app;
 /*
  * Create and configure application. Also exports application instance for use by tests.
  * See https://github.com/krakenjs/kraken-js#options for additional configuration options.
@@ -13,7 +15,7 @@ var options, app;
 options = {
     onconfig: function (config, next) {
 
-        github.init(config.get("app") || {});
+        github.init(config.get('app') || {});
         next(null, config);
     }
 };
@@ -21,6 +23,6 @@ options = {
 app = module.exports = express();
 app.use(kraken(options));
 app.on('start', function () {
-    console.log('Application ready to serve requests.');
-    console.log('Environment: %s', app.kraken.get('env:env'));
+    debuglog('Application ready to serve requests.');
+    debuglog('Environment: %s', app.kraken.get('env:env'));
 });

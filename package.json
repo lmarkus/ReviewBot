@@ -1,45 +1,48 @@
 {
-    "name": "reviewme",
-    "version": "0.1.0",
-    "description": "GitHub PR Review Helper",
-    "author": "@lmarkus",
-    "main": "server.js",
-    "engines": {
-        "node": "7.4.0",
-        "npm": "4.2.0"
-    },
-    "scripts": {
-        "test": "grunt test",
-        "build": "grunt build",
-        "postinstall": "grunt build",
-        "all": "npm run build && npm run test"
-    },
-    "dependencies": {
-        "@slack/client": "^3.8.1",
-        "construx": "^1.0.0",
-        "construx-copier": "^1.0.0",
-        "construx-dustjs": "^1.1.0",
-        "construx-less": "^1.0.0",
-        "eslint": "^1.10.3",
-        "express": "^4.12.2",
-        "github": "^8.1.0",
-        "githubhook": "^1.7.1",
-        "kraken-js": "^2.0.0",
-        "lodash": "^4.17.4",
-        "lowdb": "^0.14.0",
-        "makara": "^2.0.3"
-    },
-    "devDependencies": {
-        "grunt": "^0.4.5",
-        "grunt-cli": "^0.1.13",
-        "grunt-config-dir": "^0.3.2",
-        "grunt-contrib-clean": "^0.6.0",
-        "grunt-contrib-less": "^1.4.0",
-        "grunt-copy-to": "0.0.10",
-        "grunt-dustjs": "^1.4.0",
-        "grunt-eslint": "^17.3.2",
-        "grunt-mocha-cli": "^1.14.0",
-        "mocha": "^1.18.0",
-        "supertest": "^0.9.0"
-    }
+  "name": "reviewme",
+  "version": "0.1.0",
+  "description": "GitHub PR Review Helper",
+  "author": "@lmarkus",
+  "repository": "https://github.com/lmarkus/ReviewBot/",
+  "main": "server.js",
+  "license": "ISC",
+  "engines": {
+    "node": "7.4.0",
+    "npm": "4.2.0"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "build": "grunt build",
+    "postinstall": "grunt build",
+    "all": "npm run build && npm run test"
+  },
+  "dependencies": {
+    "@slack/client": "^3.8.1",
+    "construx": "^1.0.0",
+    "construx-copier": "^1.0.0",
+    "construx-dustjs": "^1.1.0",
+    "construx-less": "^1.0.0",
+    "eslint": "^3.15.0",
+    "express": "^4.12.2",
+    "github": "^8.1.0",
+    "githubhook": "^1.7.1",
+    "kraken-js": "^2.0.0",
+    "lodash": "^4.17.4",
+    "lowdb": "^0.14.0",
+    "makara": "^2.0.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-config-dir": "^0.3.2",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-copy-browser-modules": "^6.0.0",
+    "grunt-copy-to": "0.0.10",
+    "grunt-dustjs": "^1.4.0",
+    "grunt-eslint": "^19.0.0",
+    "grunt-mocha-cli": "^1.14.0",
+    "mocha": "^1.18.0",
+    "supertest": "^0.9.0"
+  }
 }

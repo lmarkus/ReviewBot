@@ -1,17 +1,19 @@
 'use strict';
 
-var app = require('./index');
-var http = require('http');
+const app = require('./index')
+    , http = require('http')
+    , debuglog = require('util').debuglog('GitHubHooks')
+    ;
 
 
-var server;
+let server;
 
 /*
  * Create and start HTTP server.
  */
 
 server = http.createServer(app);
-server.listen(process.env.PORT || 8000, process.env.HOST);//,'10.231.70.37');
+server.listen(process.env.PORT || 8000, process.env.HOST);
 server.on('listening', function () {
-    console.log('Server listening on http://localhost:%d', this.address().port);
+    debuglog('Server listening on http://localhost:%d', this.address().port);
 });
