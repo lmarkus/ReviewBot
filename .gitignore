@@ -78,7 +78,6 @@ crashlytics-build.properties
 
 public/counts.json
 startup.sh
-scratch.js
-/config/development.json
-.build
+
+
 
