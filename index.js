@@ -15,8 +15,9 @@ let options, app;
 options = {
     onconfig: function (config, next) {
 
-        github.init(config.get('app') || {});
-        next(null, config);
+        github.init(config.get('app') || {}, function () {
+            next(null, config);
+        });
     }
 };
 

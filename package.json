@@ -12,9 +12,10 @@
   },
   "scripts": {
     "test": "grunt test",
-    "build": "grunt build",
-    "postinstall": "grunt build",
-    "all": "npm run build && npm run test"
+    "build": "grunt build && git add .build",
+    "all": "npm run build && npm run test",
+    "lint": "grunt eslint",
+    "validate": "npm ls"
   },
   "dependencies": {
     "@slack/client": "^3.8.1",
@@ -43,6 +44,13 @@
     "grunt-eslint": "^19.0.0",
     "grunt-mocha-cli": "^1.14.0",
     "mocha": "^1.18.0",
+    "pre-commit": "^1.2.2",
     "supertest": "^0.9.0"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test",
+    "build"
+  ]
 }

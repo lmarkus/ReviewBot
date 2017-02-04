@@ -74,18 +74,17 @@
         "github": {
             "api": {
                 "token": "env:GH_TOKEN",
-                "protocol": "https",
-                "host": "github.paypal.com",
-                "pathPrefix": "/api/v3"
+                "protocol": "https"
             },
             "hooks": {
-                "secret": "env:GH_SECRET",
+
                 "host": "",
-                "path": "/"
+                "path": "/hooks"
             }
         },
         "slack": {
-            "token": "env:SLACK_TOKEN"
+            "token": "env:SLACK_TOKEN",
+            "notifyChannel": ""
         },
         "reviewers": 2
     }

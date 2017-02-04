@@ -1,0 +1,150 @@
+{
+  "repos": {
+    "lmarkus/hookTest": {
+      "FOO": "BAR",
+      "issues": {
+        "PR_25": {
+          "reviewers": [
+            {
+              "name": "egualberto",
+              "count": 1,
+              "isInactive": false
+            },
+            {
+              "name": "egualberto",
+              "count": 2,
+              "isInactive": false
+            },
+            {
+              "name": "egualberto",
+              "count": 3,
+              "isInactive": false
+            },
+            {
+              "name": "egualberto",
+              "count": 4,
+              "isInactive": false
+            }
+          ]
+        }
+      },
+      "maintainers": {
+        "mkutty": {
+          "name": "mkutty",
+          "count": 0,
+          "isInactive": false
+        },
+        "suali": {
+          "name": "suali",
+          "count": 0,
+          "isInactive": false
+        },
+        "lbreu": {
+          "name": "lbreu",
+          "count": 0,
+          "isInactive": false
+        },
+        "sukchakraborty": {
+          "name": "sukchakraborty",
+          "count": 0,
+          "isInactive": true
+        },
+        "schappidi": {
+          "name": "schappidi",
+          "count": 0,
+          "isInactive": false
+        },
+        "suppalapati": {
+          "name": "suppalapati",
+          "count": 0,
+          "isInactive": false
+        },
+        "erihe": {
+          "name": "erihe",
+          "count": 0,
+          "isInactive": false
+        },
+        "bhuang1": {
+          "name": "bhuang1",
+          "count": 0,
+          "isInactive": false
+        },
+        "shaorjiang": {
+          "name": "shaorjiang",
+          "count": 0,
+          "isInactive": true
+        },
+        "robasu": {
+          "name": "robasu",
+          "count": 0,
+          "isInactive": false
+        },
+        "jacma": {
+          "name": "jacma",
+          "count": 0,
+          "isInactive": false
+        },
+        "bmanickavasagam": {
+          "name": "bmanickavasagam",
+          "count": 0,
+          "isInactive": false
+        },
+        "lmarkus": {
+          "name": "lmarkus",
+          "count": 0,
+          "isInactive": false
+        },
+        "ranagappa": {
+          "name": "ranagappa",
+          "count": 0,
+          "isInactive": false
+        },
+        "ripandya": {
+          "name": "ripandya",
+          "count": 0,
+          "isInactive": false
+        },
+        "sumepatel": {
+          "name": "sumepatel",
+          "count": 0,
+          "isInactive": false
+        },
+        "davwu": {
+          "name": "davwu",
+          "count": 0,
+          "isInactive": false
+        },
+        "egualberto": {
+          "name": "egualberto",
+          "count": 4,
+          "isInactive": false
+        }
+      }
+    },
+    "lmarkus/HookTestA": {
+      "maintainers": {
+        "lmarkus": {
+          "name": "lmarkus",
+          "count": 1,
+          "isInactive": false
+        },
+        "lensam69": {
+          "name": "lensam69",
+          "count": 1,
+          "isInactive": false
+        }
+      },
+      "issues": {
+        "PR_2": {
+          "reviewers": [
+            {
+              "name": "lensam69",
+              "count": 1,
+              "isInactive": false
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -78,6 +78,6 @@ crashlytics-build.properties
 
 public/counts.json
 startup.sh
-
+config/development.json
 
 
