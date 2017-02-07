@@ -77,7 +77,6 @@
                 "protocol": "https"
             },
             "hooks": {
-
                 "host": "",
                 "path": "/hooks"
             }

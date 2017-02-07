@@ -1,23 +1,31 @@
 ReviewBot 9000
 ===========
 
-GitHub PR Review Helper
+When you have a large group of people working on a project with high velocity, 
+sometimes it's hard to coordinate reviewers for Pull Requests. This application
+keeps track of the maintainers of a repo, and how many reviews each person has done.
+
+When a new pull request comes in, the app will pick a (configurable) number of people
+from the reviewer pool, in a fair manner.  The selected people will be assigned to review
+the PR, and they will also (optionally) be notified via Slack.
 
 ## Setup
 
-GH_TOKEN: https://help.github.com/articles/creating-an-access-token-for-command-line-use/
-GH_SECRET: https://repl.it/F75H/0
-SLACK_TOKEN: https://get.slack.help/hc/en-us/articles/215770388-Create-and-regenerate-API-tokens
+You will need to obtain the following three things to get started:
 
+* GitHub Personal Access Token: (*GH_TOKEN*) This will be used by the app to read from, and post comments to your reapo. The access token
+should have `repo` scope. See [How to obtain an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+* GitHub Hook Secret: (*GH_SECRET*) *Optional*. If provided this will be used by GitHub to sign payloads. The app can then verify authenticiy.
+Here's a [quick example](https://repl.it/F75H/0) of how to generate a good, random secret.
+* Slack API token: (*SLACK_TOKEN*) Used to post assignment announcements to a Slack channel. See [Slack's API docs](https://get.slack.help/hc/en-us/articles/215770388-Create-and-regenerate-API-tokens)
 
 ## Deployment
-This app needs to be deployed somewhere to run.
+This app needs to be deployed somewhere to run, and GitHub webhooks must be properly configured.
+If you don't have any constraints, I highly recommend you deploy this on Heroku.
+Also recommended, deploy the service first, and then set up your hooks.
 
-If you are an enterprise user, you'll probably need to deploy this behind your firewall. (Listener Ports and Hosts are fully configurable)
-
-If you don't have any constraints, I highly recommend you deploy this on Heroku:
-
-### Heroku Setup
+### Service Deployment
+#### Heroku Setup
 * Clone this repo `$ git clone https://github.com/lmarkus/ReviewBot/ && cd ReviewBot`
 * Follow the [Setup](#Setup) section above
 * Create a [free heroku account](https://signup.heroku.com/) (If you've never worked with Heroku before, you should follow their [NodeJS tutorial](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up) first)
@@ -32,9 +40,51 @@ If you don't have any constraints, I highly recommend you deploy this on Heroku:
  heroku config:set SLACK_TOKEN=<your slack api token>
 ```
 * Launch the app! `$ heroku ps:scale web=1` (Confirm that it works via `$ heroku open`)
+**NOTE:** Heroku routes all traffic (NAT) through port 80 
+
+#### Custom setup
+If you are an enterprise user, you'll probably need to deploy this behind your firewall.
+* Clone this repo `$ git clone https://github.com/lmarkus/ReviewBot/ && cd ReviewBot`
+* Install dependencies: `$ npm install`
+* Set the environment variables (`GH_TOKEN`, `GH_SECRET`, `SLACK_TOKEN`) (Alternatively, you can directly set them in `./config/development.json` if you're just testing)
+* Launch the app: `npm start` (or, `node server.js`)
+* You'll probably want to look into writing a [startup script](https://blog.jalada.co.uk/simple-upstart-script-to-keep-a-node-process-alive/), or [forever](https://www.npmjs.com/package/forever) to ensure your app is always up and running
+
+### GitHub Setup
+* Add a [new GitHub WebHook](https://developer.github.com/webhooks/creating/)
+* The default path is `http[s]://<your service URL>:<port>/hooks`
+* Your WebHook needs to push specific events: `Pull Request` and `Comments`
+* Don't forget to set up your `secret` if your service is expecting it.
 
 
-## Config
+## Configuration
+
+This is a KrakenJS app. you can read more about the base configuration [here](http://krakenjs.com/index.html#configuration).
+The important thing you need to know right now, is that the configuration is environment-aware.
+If you have `NODE_ENV` set to production, it will exclusively use `.config/config.json` otherwise, it will merge `.config/config.json` with `.config/development.json`.
+This allows you the flexibility to test locally  with ease.
+
+ Within either configuration file, look for the `app` section:
+ ```json  
+  "app": {
+            "github": {
+                "api": {
+                    "token": "env:GH_TOKEN",
+                    "protocol": "https"
+                },
+                "hooks": {
+                    "host": "",
+                    "path": "/hooks"
+                }
+            },
+            "slack": {
+                "token": "env:SLACK_TOKEN",
+                "notifyChannel": ""
+            },
+            "reviewers": 2
+        }
+```
+ 
 ### GitHub
 
   * `token`: GitHub access token. Required for posting comments to a pull request. The access token must created with  `repo` scope. [Documentation](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
