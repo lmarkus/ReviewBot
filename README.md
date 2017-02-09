@@ -64,7 +64,9 @@ The important thing you need to know right now, is that the configuration is env
 If you have `NODE_ENV` set to production, it will exclusively use `.config/config.json` otherwise, it will merge `.config/config.json` with `.config/development.json`.
 This allows you the flexibility to test locally  with ease.
 
- Within either configuration file, look for the `app` section:
+ Within either configuration file, look for the `app` section.
+ Below are the default values:
+ 
  ```json  
   "app": {
             "github": {
@@ -79,17 +81,26 @@ This allows you the flexibility to test locally  with ease.
             },
             "slack": {
                 "token": "env:SLACK_TOKEN",
-                "notifyChannel": ""
+                "notifyChannel": "general"
             },
             "reviewers": 2
         }
 ```
  
-### GitHub
+ You can choose to save the access tokens directly in the configuration file for convenience, but this is not a good practice
+ 
+ The **api** section is passed on to the underlying [Node-GitHub Module](https://github.com/mikedeboer/node-github)
+ 
+ The **hooks** section is passed on to the underlying [GitHubHook Module](https://github.com/nlf/node-github-hook) 
+ 
+ ( You can read their respective docs for more info on available options.
+   They will work fin out of the box for GitHub.com integrations, but you may need to tweak them a bit for custom and
+   GitHub Enterprise settings.)
+ 
+ The **slack** section just needs the access token, and the channel in which to post notifications (The bot *must* be invited into that channel)
+ 
+ **reviewers** specifies how many people are assigned to a pull request.
+ 
 
-  * `token`: GitHub access token. Required for posting comments to a pull request. The access token must created with  `repo` scope. [Documentation](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
-  * `secret`: (Optional) GitHub WebHook secret for validating incoming messages
- 
- Additional options can be specified, and are passed onto the [GitHub Hooks Module](https://github.com/nlf/node-github-hook). Review their documentation for more info.
- 
- 
+  
+
