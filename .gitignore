@@ -81,4 +81,4 @@ startup.sh
 config/development.json
 
 
-/test/scratch/
+test/scratch/counts.json
