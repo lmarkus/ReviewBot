@@ -33,6 +33,8 @@
     "makara": "^2.0.3"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "del": "^2.2.2",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-config-dir": "^0.3.2",
@@ -46,6 +48,7 @@
     "grunt-mocha-istanbul": "^5.0.2",
     "istanbul": "^0.4.5",
     "mocha": "^1.18.0",
+    "mockery": "^2.0.0",
     "pre-commit": "^1.2.2",
     "supertest": "^0.9.0"
   },
