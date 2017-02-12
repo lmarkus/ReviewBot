@@ -66,7 +66,7 @@ describe('Comment Handler Tests', function () {
         });
         mockery.registerMock('./GitHubUtils', class MockGHU {
             static getMaintainersFile(options = {}, callback) {
-                fs.readFile('test/fixtures/MAINTAINERS.txt', 'utf-8',
+                fs.readFile('test/fixtures/MAINTAINERS', 'utf-8',
                     function (err, data) {
                         callback(err, data.split('\n'));
                     }
