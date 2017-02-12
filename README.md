@@ -1,5 +1,6 @@
 ReviewBot 9000
 ===========
+![Build Status](https://travis-ci.org/lmarkus/ReviewBot.svg?branch=master)
 
 When you have a large group of people working on a project with high velocity, 
 sometimes it's hard to coordinate reviewers for Pull Requests. This application
