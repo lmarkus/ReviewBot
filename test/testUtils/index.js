@@ -9,6 +9,29 @@ if (!fs.existsSync(path)) {
 }
 
 module.exports = {
+    GetMaintainersMocker: class GetMaintainersMocker {
+        constructor() {
+            this.maintainersFile = '';
+        }
+
+        use(path) {
+            this.maintainersFile = path;
+        }
+
+        getMock() {
+            return (function (parent) {
+                return class MockGHU {
+                    static getMaintainersFile(options = {}, callback) {
+                        fs.readFile(parent.maintainersFile, 'utf-8',
+                            function (err, data) {
+                                callback(err, data.split('\n'));
+                            }
+                        );
+                    }
+                };
+            }(this));
+        }
+    },
 
     LowMocker: class LowMocker {
 
