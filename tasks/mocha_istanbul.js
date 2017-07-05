@@ -7,9 +7,9 @@ module.exports = function mocha_istanbul(grunt) {
     // Options
     return {
         coverage: {
-            src: ['lib', 'controllers'], // What to check for coverage
+            src: ['test/**/*.js'/*,'lib', 'controllers'*/], // Where the tests are
             options: {
-                src: ['test/**/*.js'], // Where the tests are
+                src: ['test/**/*.js'],
                 options: {
                     timeout: 6000,
                     'check-leaks': true,
