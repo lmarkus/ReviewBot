@@ -56,7 +56,7 @@ If you are an enterprise user, you'll probably need to deploy this behind your f
 * The default path is `http[s]://<your service URL>:<port>/hooks`
 * Your WebHook needs to push specific events: `Pull Request` and `Comments`
 * Don't forget to set up your `secret` if your service is expecting it.
-* Add a `MAINTAINERS` file at the root of your repo. (See this [example](blob/master/test/fixtures/MAINTAINERS) for formatting). This file lets the review bot know who's availabale for reviewing a PR
+* Add a `MAINTAINERS` file at the root of your repo. (See this [example](test/fixtures/MAINTAINERS) for formatting). This file lets the review bot know who's availabale for reviewing a PR
 
 
 ## Configuration
